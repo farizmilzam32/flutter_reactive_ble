@@ -25,10 +25,10 @@ void main() {
     late MockMethodChannel _methodChannel;
     late ArgsToProtobufConverter _argsConverter;
     late ProtobufConverter _protobufConverter;
-    late StreamController<List<int>> _connectedDeviceStreamController;
-    late StreamController<List<int>> _argsStreamController;
-    late StreamController<List<int>> _scanStreamController;
-    late StreamController<List<int>> _statusStreamController;
+    late StreamController<List<BigInt>> _connectedDeviceStreamController;
+    late StreamController<List<BigInt>> _argsStreamController;
+    late StreamController<List<BigInt>> _scanStreamController;
+    late StreamController<List<BigInt>> _statusStreamController;
 
     setUp(() {
       _argsConverter = MockArgsToProtobufConverter();
@@ -149,7 +149,7 @@ void main() {
         );
 
         _argsStreamController.addStream(
-          Stream<List<int>>.fromIterable([
+          Stream<List<BigInt>>.fromIterable([
             [0, 1]
           ]),
         );
@@ -217,7 +217,7 @@ void main() {
           result: const Result.success(null),
         );
 
-        when(_methodChannel.invokeMethod<List<int>?>(any, any)).thenAnswer(
+        when(_methodChannel.invokeMethod<List<BigInt>?>(any, any)).thenAnswer(
           (_) async => [1],
         );
         when(
@@ -237,7 +237,7 @@ void main() {
       });
 
       test('It invokes method channel with correct arguments', () {
-        verify(_methodChannel.invokeMethod<List<int>?>(
+        verify(_methodChannel.invokeMethod<List<BigInt>?>(
                 'writeCharacteristicWithResponse', request.writeToBuffer()))
             .called(1);
       });
@@ -268,7 +268,7 @@ void main() {
             // ignore: void_checks
             result: const Result.success(Unit()));
 
-        when(_methodChannel.invokeMethod<List<int>?>(any, any)).thenAnswer(
+        when(_methodChannel.invokeMethod<List<BigInt>?>(any, any)).thenAnswer(
           (_) async => value,
         );
         when(
@@ -370,13 +370,13 @@ void main() {
       const deviceId = '123';
       const mtuSize = 40;
       late pb.NegotiateMtuRequest request;
-      int? result;
+      BigInt? result;
 
       setUp(() async {
         request = pb.NegotiateMtuRequest();
         when(_argsConverter.createNegotiateMtuRequest(deviceId, mtuSize))
             .thenReturn(request);
-        when(_methodChannel.invokeMethod<List<int>>(any, any)).thenAnswer(
+        when(_methodChannel.invokeMethod<List<BigInt>>(any, any)).thenAnswer(
           (_) async => [1],
         );
 
@@ -390,7 +390,7 @@ void main() {
 
       test('It invokes method channel with correct arguments', () {
         verify(
-          _methodChannel.invokeMethod<List<int>>(
+          _methodChannel.invokeMethod<List<BigInt>>(
             'negotiateMtuSize',
             request.writeToBuffer(),
           ),
@@ -409,7 +409,7 @@ void main() {
         request = pb.ChangeConnectionPriorityRequest();
         priority = ConnectionPriority.highPerformance;
         info = const ConnectionPriorityInfo(result: Result.success(null));
-        when(_methodChannel.invokeMethod<List<int>>(any, any)).thenAnswer(
+        when(_methodChannel.invokeMethod<List<BigInt>>(any, any)).thenAnswer(
           (_) async => [1],
         );
         when(
@@ -430,7 +430,7 @@ void main() {
 
       test('It invokes method channel with correct arguments', () {
         verify(
-          _methodChannel.invokeMethod<List<int>>(
+          _methodChannel.invokeMethod<List<BigInt>>(
             'requestConnectionPriority',
             request.writeToBuffer(),
           ),
@@ -499,7 +499,7 @@ void main() {
         when(_protobufConverter.scanResultFrom([1])).thenReturn(scanResult);
 
         _scanStreamController.addStream(
-          Stream<List<int>>.fromIterable([
+          Stream<List<BigInt>>.fromIterable([
             [1],
           ]),
         );
@@ -544,7 +544,7 @@ void main() {
             const Result<Unit, GenericFailure<ClearGattCacheError>>.success(
           Unit(),
         );
-        when(_methodChannel.invokeMethod<List<int>>(any, any)).thenAnswer(
+        when(_methodChannel.invokeMethod<List<BigInt>>(any, any)).thenAnswer(
           (_) async => [1],
         );
 
@@ -557,7 +557,7 @@ void main() {
       });
 
       test('It calls method channel with correct arguments', () {
-        verify(_methodChannel.invokeMethod<List<int>>(
+        verify(_methodChannel.invokeMethod<List<BigInt>>(
           'clearGattCache',
           request.writeToBuffer(),
         )).called(1);
@@ -576,7 +576,7 @@ void main() {
 
       setUp(() {
         _statusStreamController.addStream(
-          Stream<List<int>>.fromIterable([
+          Stream<List<BigInt>>.fromIterable([
             [1],
             [0]
           ]),
@@ -609,7 +609,7 @@ void main() {
       setUp(() async {
         request = pb.DiscoverServicesRequest();
 
-        when(_methodChannel.invokeMethod<List<int>>(any, any)).thenAnswer(
+        when(_methodChannel.invokeMethod<List<BigInt>>(any, any)).thenAnswer(
           (_) async => [1],
         );
         when(_argsConverter.createDiscoverServicesRequest(deviceId))
@@ -626,7 +626,7 @@ void main() {
 
       test('It invokes methodchannel with correct arguments', () {
         verify(
-          _methodChannel.invokeMethod<List<int>>(
+          _methodChannel.invokeMethod<List<BigInt>>(
             'discoverServices',
             request.writeToBuffer(),
           ),

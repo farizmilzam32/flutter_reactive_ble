@@ -121,7 +121,7 @@ void main() {
           hasFailure: false,
           getFailure: () => throw Exception(),
           codes: <String>[],
-          fallback: (int? rawOrNull) => throw Exception(),
+          fallback: (BigInt? rawOrNull) => throw Exception(),
         );
         expect(error, null);
       });
@@ -220,7 +220,7 @@ void main() {
       const id = 'id';
       const connectionState = 1;
 
-      late List<int> message;
+      late List<BigInt> message;
 
       group('given a message without a failure', () {
         setUp(() {
@@ -344,7 +344,7 @@ void main() {
       });
 
       group('given an error occurred', () {
-        List<int> failureMessage;
+        List<BigInt> failureMessage;
         String? result;
 
         setUp(() {
@@ -364,7 +364,7 @@ void main() {
     group("Decoding ${pb.WriteCharacteristicInfo}", () {
       const id = 'id';
 
-      late List<int> data;
+      late List<BigInt> data;
       late pb.CharacteristicAddress characteristic;
 
       setUp(() {
@@ -465,7 +465,7 @@ void main() {
 
     group('Coverts MTU size', () {
       const size = 20;
-      int? result;
+      BigInt? result;
 
       setUp(() {
         final message = pb.NegotiateMtuInfo()..mtuSize = size;

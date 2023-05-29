@@ -117,7 +117,7 @@ class MockReactiveBlePlatform extends _i1.Mock
           returnValue: Stream<void>.empty()) as _i4.Stream<void>);
   @override
   _i4.Future<_i2.WriteCharacteristicInfo> writeCharacteristicWithResponse(
-          _i2.QualifiedCharacteristic? characteristic, List<int>? value) =>
+          _i2.QualifiedCharacteristic? characteristic, List<BigInt>? value) =>
       (super.noSuchMethod(
               Invocation.method(
                   #writeCharacteristicWithResponse, [characteristic, value]),
@@ -126,7 +126,7 @@ class MockReactiveBlePlatform extends _i1.Mock
           as _i4.Future<_i2.WriteCharacteristicInfo>);
   @override
   _i4.Future<_i2.WriteCharacteristicInfo> writeCharacteristicWithoutResponse(
-          _i2.QualifiedCharacteristic? characteristic, List<int>? value) =>
+          _i2.QualifiedCharacteristic? characteristic, List<BigInt>? value) =>
       (super.noSuchMethod(
               Invocation.method(
                   #writeCharacteristicWithoutResponse, [characteristic, value]),
@@ -147,9 +147,9 @@ class MockReactiveBlePlatform extends _i1.Mock
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
   @override
-  _i4.Future<int> requestMtuSize(String? deviceId, int? mtu) =>
+  _i4.Future<BigInt> requestMtuSize(String? deviceId, BigInt? mtu) =>
       (super.noSuchMethod(Invocation.method(#requestMtuSize, [deviceId, mtu]),
-          returnValue: Future<int>.value(0)) as _i4.Future<int>);
+          returnValue: Future<BigInt>.value(0)) as _i4.Future<BigInt>);
   @override
   _i4.Future<_i2.ConnectionPriorityInfo> requestConnectionPriority(
           String? deviceId, _i2.ConnectionPriority? priority) =>

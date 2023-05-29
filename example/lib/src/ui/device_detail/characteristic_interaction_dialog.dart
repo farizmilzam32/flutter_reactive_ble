@@ -35,17 +35,17 @@ class _CharacteristicInteractionDialog extends StatefulWidget {
   }) : super(key: key);
 
   final QualifiedCharacteristic characteristic;
-  final Future<List<int>> Function(QualifiedCharacteristic characteristic)
+  final Future<List<BigInt>> Function(QualifiedCharacteristic characteristic)
       readCharacteristic;
   final Future<void> Function(
-          QualifiedCharacteristic characteristic, List<int> value)
+          QualifiedCharacteristic characteristic, List<BigInt> value)
       writeWithResponse;
 
-  final Stream<List<int>> Function(QualifiedCharacteristic characteristic)
+  final Stream<List<BigInt>> Function(QualifiedCharacteristic characteristic)
       subscribeToCharacteristic;
 
   final Future<void> Function(
-          QualifiedCharacteristic characteristic, List<int> value)
+          QualifiedCharacteristic characteristic, List<BigInt> value)
       writeWithoutResponse;
 
   @override
@@ -59,7 +59,7 @@ class _CharacteristicInteractionDialogState
   late String writeOutput;
   late String subscribeOutput;
   late TextEditingController textEditingController;
-  late StreamSubscription<List<int>>? subscribeStream;
+  late StreamSubscription<List<BigInt>>? subscribeStream;
 
   @override
   void initState() {
@@ -95,10 +95,10 @@ class _CharacteristicInteractionDialogState
     });
   }
 
-  List<int> _parseInput() => textEditingController.text
+  List<BigInt> _parseInput() => textEditingController.text
       .split(',')
       .map(
-        int.parse,
+        BigInt.parse,
       )
       .toList();
 

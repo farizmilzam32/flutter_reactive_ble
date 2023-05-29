@@ -22,7 +22,7 @@ class GenericFailure<T> {
           message == other.message);
 
   @override
-  int get hashCode {
+  BigInt get hashCode {
     var result = 17;
     result = 37 * result + code.hashCode;
     result = 37 * result + message.hashCode;

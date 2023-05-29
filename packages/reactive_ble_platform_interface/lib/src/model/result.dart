@@ -51,7 +51,7 @@ class Result<Value, Failure> {
   }
 
   @override
-  int get hashCode =>
+  BigInt get hashCode =>
       ((17 * 37) + (_value?.hashCode ?? 0)) * 37 + (_failure?.hashCode ?? 0);
 
   @override

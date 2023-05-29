@@ -23,7 +23,7 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
         $pb.PbFieldType.PM,
         protoName: 'serviceUuids',
         subBuilder: Uuid.create)
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -41,7 +41,7 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
   ScanForDevicesRequest._() : super();
   factory ScanForDevicesRequest({
     $core.Iterable<Uuid>? serviceUuids,
-    $core.int? scanMode,
+    $core.BigInt? scanMode,
     $core.bool? requireLocationServicesEnabled,
   }) {
     final _result = create();
@@ -56,7 +56,7 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ScanForDevicesRequest.fromBuffer($core.List<$core.int> i,
+  factory ScanForDevicesRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ScanForDevicesRequest.fromJson($core.String i,
@@ -89,9 +89,9 @@ class ScanForDevicesRequest extends $pb.GeneratedMessage {
   $core.List<Uuid> get serviceUuids => $_getList(0);
 
   @$pb.TagNumber(2)
-  $core.int get scanMode => $_getIZ(1);
+  $core.BigInt get scanMode => $_getIZ(1);
   @$pb.TagNumber(2)
-  set scanMode($core.int v) {
+  set scanMode($core.BigInt v) {
     $_setSignedInt32(1, v);
   }
 
@@ -143,13 +143,13 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
         $pb.PbFieldType.PM,
         protoName: 'serviceData',
         subBuilder: ServiceDataEntry.create)
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         5,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'rssi',
         $pb.PbFieldType.O3)
-    ..a<$core.List<$core.int>>(
+    ..a<$core.List<$core.BigInt>>(
         6,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -172,8 +172,8 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
     $core.String? name,
     GenericFailure? failure,
     $core.Iterable<ServiceDataEntry>? serviceData,
-    $core.int? rssi,
-    $core.List<$core.int>? manufacturerData,
+    $core.BigInt? rssi,
+    $core.List<$core.BigInt>? manufacturerData,
     $core.Iterable<Uuid>? serviceUuids,
   }) {
     final _result = create();
@@ -200,7 +200,7 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DeviceScanInfo.fromBuffer($core.List<$core.int> i,
+  factory DeviceScanInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DeviceScanInfo.fromJson($core.String i,
@@ -269,9 +269,9 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
   $core.List<ServiceDataEntry> get serviceData => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.int get rssi => $_getIZ(4);
+  $core.BigInt get rssi => $_getIZ(4);
   @$pb.TagNumber(5)
-  set rssi($core.int v) {
+  set rssi($core.BigInt v) {
     $_setSignedInt32(4, v);
   }
 
@@ -281,9 +281,9 @@ class DeviceScanInfo extends $pb.GeneratedMessage {
   void clearRssi() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<$core.int> get manufacturerData => $_getN(5);
+  $core.List<$core.BigInt> get manufacturerData => $_getN(5);
   @$pb.TagNumber(6)
-  set manufacturerData($core.List<$core.int> v) {
+  set manufacturerData($core.List<$core.BigInt> v) {
     $_setBytes(5, v);
   }
 
@@ -315,7 +315,7 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
             : 'servicesWithCharacteristicsToDiscover',
         protoName: 'servicesWithCharacteristicsToDiscover',
         subBuilder: ServicesWithCharacteristics.create)
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -328,7 +328,7 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
   factory ConnectToDeviceRequest({
     $core.String? deviceId,
     ServicesWithCharacteristics? servicesWithCharacteristicsToDiscover,
-    $core.int? timeoutInMs,
+    $core.BigInt? timeoutInMs,
   }) {
     final _result = create();
     if (deviceId != null) {
@@ -343,7 +343,7 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ConnectToDeviceRequest.fromBuffer($core.List<$core.int> i,
+  factory ConnectToDeviceRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ConnectToDeviceRequest.fromJson($core.String i,
@@ -401,9 +401,9 @@ class ConnectToDeviceRequest extends $pb.GeneratedMessage {
       $_ensure(1);
 
   @$pb.TagNumber(3)
-  $core.int get timeoutInMs => $_getIZ(2);
+  $core.BigInt get timeoutInMs => $_getIZ(2);
   @$pb.TagNumber(3)
-  set timeoutInMs($core.int v) {
+  set timeoutInMs($core.BigInt v) {
     $_setSignedInt32(2, v);
   }
 
@@ -424,7 +424,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'id')
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -442,7 +442,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
   DeviceInfo._() : super();
   factory DeviceInfo({
     $core.String? id,
-    $core.int? connectionState,
+    $core.BigInt? connectionState,
     GenericFailure? failure,
   }) {
     final _result = create();
@@ -457,7 +457,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DeviceInfo.fromBuffer($core.List<$core.int> i,
+  factory DeviceInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DeviceInfo.fromJson($core.String i,
@@ -496,9 +496,9 @@ class DeviceInfo extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get connectionState => $_getIZ(1);
+  $core.BigInt get connectionState => $_getIZ(1);
   @$pb.TagNumber(2)
-  set connectionState($core.int v) {
+  set connectionState($core.BigInt v) {
     $_setSignedInt32(1, v);
   }
 
@@ -546,7 +546,7 @@ class DisconnectFromDeviceRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DisconnectFromDeviceRequest.fromBuffer($core.List<$core.int> i,
+  factory DisconnectFromDeviceRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DisconnectFromDeviceRequest.fromJson($core.String i,
@@ -614,7 +614,7 @@ class ClearGattCacheRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ClearGattCacheRequest.fromBuffer($core.List<$core.int> i,
+  factory ClearGattCacheRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClearGattCacheRequest.fromJson($core.String i,
@@ -680,7 +680,7 @@ class ClearGattCacheInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ClearGattCacheInfo.fromBuffer($core.List<$core.int> i,
+  factory ClearGattCacheInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ClearGattCacheInfo.fromJson($core.String i,
@@ -746,7 +746,7 @@ class NotifyCharacteristicRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory NotifyCharacteristicRequest.fromBuffer($core.List<$core.int> i,
+  factory NotifyCharacteristicRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NotifyCharacteristicRequest.fromJson($core.String i,
@@ -816,7 +816,8 @@ class NotifyNoMoreCharacteristicRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory NotifyNoMoreCharacteristicRequest.fromBuffer($core.List<$core.int> i,
+  factory NotifyNoMoreCharacteristicRequest.fromBuffer(
+          $core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NotifyNoMoreCharacteristicRequest.fromJson($core.String i,
@@ -887,7 +888,7 @@ class ReadCharacteristicRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ReadCharacteristicRequest.fromBuffer($core.List<$core.int> i,
+  factory ReadCharacteristicRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ReadCharacteristicRequest.fromJson($core.String i,
@@ -943,7 +944,7 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
             ? ''
             : 'characteristic',
         subBuilder: CharacteristicAddress.create)
-    ..a<$core.List<$core.int>>(
+    ..a<$core.List<$core.BigInt>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -960,7 +961,7 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
   CharacteristicValueInfo._() : super();
   factory CharacteristicValueInfo({
     CharacteristicAddress? characteristic,
-    $core.List<$core.int>? value,
+    $core.List<$core.BigInt>? value,
     GenericFailure? failure,
   }) {
     final _result = create();
@@ -975,7 +976,7 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CharacteristicValueInfo.fromBuffer($core.List<$core.int> i,
+  factory CharacteristicValueInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CharacteristicValueInfo.fromJson($core.String i,
@@ -1019,9 +1020,9 @@ class CharacteristicValueInfo extends $pb.GeneratedMessage {
   CharacteristicAddress ensureCharacteristic() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.List<$core.int> get value => $_getN(1);
+  $core.List<$core.BigInt> get value => $_getN(1);
   @$pb.TagNumber(2)
-  set value($core.List<$core.int> v) {
+  set value($core.List<$core.BigInt> v) {
     $_setBytes(1, v);
   }
 
@@ -1057,7 +1058,7 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
             ? ''
             : 'characteristic',
         subBuilder: CharacteristicAddress.create)
-    ..a<$core.List<$core.int>>(
+    ..a<$core.List<$core.BigInt>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -1068,7 +1069,7 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
   WriteCharacteristicRequest._() : super();
   factory WriteCharacteristicRequest({
     CharacteristicAddress? characteristic,
-    $core.List<$core.int>? value,
+    $core.List<$core.BigInt>? value,
   }) {
     final _result = create();
     if (characteristic != null) {
@@ -1079,7 +1080,7 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory WriteCharacteristicRequest.fromBuffer($core.List<$core.int> i,
+  factory WriteCharacteristicRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory WriteCharacteristicRequest.fromJson($core.String i,
@@ -1124,9 +1125,9 @@ class WriteCharacteristicRequest extends $pb.GeneratedMessage {
   CharacteristicAddress ensureCharacteristic() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.List<$core.int> get value => $_getN(1);
+  $core.List<$core.BigInt> get value => $_getN(1);
   @$pb.TagNumber(2)
-  set value($core.List<$core.int> v) {
+  set value($core.List<$core.BigInt> v) {
     $_setBytes(1, v);
   }
 
@@ -1170,7 +1171,7 @@ class WriteCharacteristicInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory WriteCharacteristicInfo.fromBuffer($core.List<$core.int> i,
+  factory WriteCharacteristicInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory WriteCharacteristicInfo.fromJson($core.String i,
@@ -1240,7 +1241,7 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
             ? ''
             : 'deviceId',
         protoName: 'deviceId')
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -1252,7 +1253,7 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
   NegotiateMtuRequest._() : super();
   factory NegotiateMtuRequest({
     $core.String? deviceId,
-    $core.int? mtuSize,
+    $core.BigInt? mtuSize,
   }) {
     final _result = create();
     if (deviceId != null) {
@@ -1263,7 +1264,7 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory NegotiateMtuRequest.fromBuffer($core.List<$core.int> i,
+  factory NegotiateMtuRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NegotiateMtuRequest.fromJson($core.String i,
@@ -1303,9 +1304,9 @@ class NegotiateMtuRequest extends $pb.GeneratedMessage {
   void clearDeviceId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get mtuSize => $_getIZ(1);
+  $core.BigInt get mtuSize => $_getIZ(1);
   @$pb.TagNumber(2)
-  set mtuSize($core.int v) {
+  set mtuSize($core.BigInt v) {
     $_setSignedInt32(1, v);
   }
 
@@ -1327,7 +1328,7 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
             ? ''
             : 'deviceId',
         protoName: 'deviceId')
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -1345,7 +1346,7 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
   NegotiateMtuInfo._() : super();
   factory NegotiateMtuInfo({
     $core.String? deviceId,
-    $core.int? mtuSize,
+    $core.BigInt? mtuSize,
     GenericFailure? failure,
   }) {
     final _result = create();
@@ -1360,7 +1361,7 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory NegotiateMtuInfo.fromBuffer($core.List<$core.int> i,
+  factory NegotiateMtuInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory NegotiateMtuInfo.fromJson($core.String i,
@@ -1400,9 +1401,9 @@ class NegotiateMtuInfo extends $pb.GeneratedMessage {
   void clearDeviceId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get mtuSize => $_getIZ(1);
+  $core.BigInt get mtuSize => $_getIZ(1);
   @$pb.TagNumber(2)
-  set mtuSize($core.int v) {
+  set mtuSize($core.BigInt v) {
     $_setSignedInt32(1, v);
   }
 
@@ -1432,7 +1433,7 @@ class BleStatusInfo extends $pb.GeneratedMessage {
           ? ''
           : 'BleStatusInfo',
       createEmptyInstance: create)
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -1442,7 +1443,7 @@ class BleStatusInfo extends $pb.GeneratedMessage {
 
   BleStatusInfo._() : super();
   factory BleStatusInfo({
-    $core.int? status,
+    $core.BigInt? status,
   }) {
     final _result = create();
     if (status != null) {
@@ -1450,7 +1451,7 @@ class BleStatusInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory BleStatusInfo.fromBuffer($core.List<$core.int> i,
+  factory BleStatusInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory BleStatusInfo.fromJson($core.String i,
@@ -1478,9 +1479,9 @@ class BleStatusInfo extends $pb.GeneratedMessage {
   static BleStatusInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get status => $_getIZ(0);
+  $core.BigInt get status => $_getIZ(0);
   @$pb.TagNumber(1)
-  set status($core.int v) {
+  set status($core.BigInt v) {
     $_setSignedInt32(0, v);
   }
 
@@ -1502,7 +1503,7 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
             ? ''
             : 'deviceId',
         protoName: 'deviceId')
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -1513,7 +1514,7 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
   ChangeConnectionPriorityRequest._() : super();
   factory ChangeConnectionPriorityRequest({
     $core.String? deviceId,
-    $core.int? priority,
+    $core.BigInt? priority,
   }) {
     final _result = create();
     if (deviceId != null) {
@@ -1524,7 +1525,7 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ChangeConnectionPriorityRequest.fromBuffer($core.List<$core.int> i,
+  factory ChangeConnectionPriorityRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ChangeConnectionPriorityRequest.fromJson($core.String i,
@@ -1569,9 +1570,9 @@ class ChangeConnectionPriorityRequest extends $pb.GeneratedMessage {
   void clearDeviceId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get priority => $_getIZ(1);
+  $core.BigInt get priority => $_getIZ(1);
   @$pb.TagNumber(2)
-  set priority($core.int v) {
+  set priority($core.BigInt v) {
     $_setSignedInt32(1, v);
   }
 
@@ -1615,7 +1616,7 @@ class ChangeConnectionPriorityInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ChangeConnectionPriorityInfo.fromBuffer($core.List<$core.int> i,
+  factory ChangeConnectionPriorityInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ChangeConnectionPriorityInfo.fromJson($core.String i,
@@ -1719,7 +1720,7 @@ class CharacteristicAddress extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CharacteristicAddress.fromBuffer($core.List<$core.int> i,
+  factory CharacteristicAddress.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory CharacteristicAddress.fromJson($core.String i,
@@ -1802,7 +1803,7 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
             : 'serviceUuid',
         protoName: 'serviceUuid',
         subBuilder: Uuid.create)
-    ..a<$core.List<$core.int>>(
+    ..a<$core.List<$core.BigInt>>(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -1813,7 +1814,7 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
   ServiceDataEntry._() : super();
   factory ServiceDataEntry({
     Uuid? serviceUuid,
-    $core.List<$core.int>? data,
+    $core.List<$core.BigInt>? data,
   }) {
     final _result = create();
     if (serviceUuid != null) {
@@ -1824,7 +1825,7 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ServiceDataEntry.fromBuffer($core.List<$core.int> i,
+  factory ServiceDataEntry.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ServiceDataEntry.fromJson($core.String i,
@@ -1866,9 +1867,9 @@ class ServiceDataEntry extends $pb.GeneratedMessage {
   Uuid ensureServiceUuid() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $core.List<$core.int> get data => $_getN(1);
+  $core.List<$core.BigInt> get data => $_getN(1);
   @$pb.TagNumber(2)
-  set data($core.List<$core.int> v) {
+  set data($core.List<$core.BigInt> v) {
     $_setBytes(1, v);
   }
 
@@ -1903,7 +1904,7 @@ class ServicesWithCharacteristics extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ServicesWithCharacteristics.fromBuffer($core.List<$core.int> i,
+  factory ServicesWithCharacteristics.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ServicesWithCharacteristics.fromJson($core.String i,
@@ -1974,7 +1975,7 @@ class ServiceWithCharacteristics extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory ServiceWithCharacteristics.fromBuffer($core.List<$core.int> i,
+  factory ServiceWithCharacteristics.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory ServiceWithCharacteristics.fromJson($core.String i,
@@ -2046,7 +2047,7 @@ class DiscoverServicesRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DiscoverServicesRequest.fromBuffer($core.List<$core.int> i,
+  factory DiscoverServicesRequest.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DiscoverServicesRequest.fromJson($core.String i,
@@ -2123,7 +2124,7 @@ class DiscoverServicesInfo extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DiscoverServicesInfo.fromBuffer($core.List<$core.int> i,
+  factory DiscoverServicesInfo.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DiscoverServicesInfo.fromJson($core.String i,
@@ -2227,7 +2228,7 @@ class DiscoveredService extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DiscoveredService.fromBuffer($core.List<$core.int> i,
+  factory DiscoveredService.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DiscoveredService.fromJson($core.String i,
@@ -2364,7 +2365,7 @@ class DiscoveredCharacteristic extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DiscoveredCharacteristic.fromBuffer($core.List<$core.int> i,
+  factory DiscoveredCharacteristic.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory DiscoveredCharacteristic.fromJson($core.String i,
@@ -2488,7 +2489,7 @@ class Uuid extends $pb.GeneratedMessage {
           ? ''
           : 'Uuid',
       createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
+    ..a<$core.List<$core.BigInt>>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -2498,7 +2499,7 @@ class Uuid extends $pb.GeneratedMessage {
 
   Uuid._() : super();
   factory Uuid({
-    $core.List<$core.int>? data,
+    $core.List<$core.BigInt>? data,
   }) {
     final _result = create();
     if (data != null) {
@@ -2506,7 +2507,7 @@ class Uuid extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Uuid.fromBuffer($core.List<$core.int> i,
+  factory Uuid.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory Uuid.fromJson($core.String i,
@@ -2533,9 +2534,9 @@ class Uuid extends $pb.GeneratedMessage {
   static Uuid? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$core.int> get data => $_getN(0);
+  $core.List<$core.BigInt> get data => $_getN(0);
   @$pb.TagNumber(1)
-  set data($core.List<$core.int> v) {
+  set data($core.List<$core.BigInt> v) {
     $_setBytes(0, v);
   }
 
@@ -2551,7 +2552,7 @@ class GenericFailure extends $pb.GeneratedMessage {
           ? ''
           : 'GenericFailure',
       createEmptyInstance: create)
-    ..a<$core.int>(
+    ..a<$core.BigInt>(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
@@ -2566,7 +2567,7 @@ class GenericFailure extends $pb.GeneratedMessage {
 
   GenericFailure._() : super();
   factory GenericFailure({
-    $core.int? code,
+    $core.BigInt? code,
     $core.String? message,
   }) {
     final _result = create();
@@ -2578,7 +2579,7 @@ class GenericFailure extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory GenericFailure.fromBuffer($core.List<$core.int> i,
+  factory GenericFailure.fromBuffer($core.List<$core.BigInt> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
   factory GenericFailure.fromJson($core.String i,
@@ -2606,9 +2607,9 @@ class GenericFailure extends $pb.GeneratedMessage {
   static GenericFailure? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get code => $_getIZ(0);
+  $core.BigInt get code => $_getIZ(0);
   @$pb.TagNumber(1)
-  set code($core.int v) {
+  set code($core.BigInt v) {
     $_setSignedInt32(0, v);
   }
 

@@ -6,16 +6,18 @@ class BleDeviceInteractor {
   BleDeviceInteractor({
     required Future<List<DiscoveredService>> Function(String deviceId)
         bleDiscoverServices,
-    required Future<List<int>> Function(QualifiedCharacteristic characteristic)
+    required Future<List<BigInt>> Function(
+            QualifiedCharacteristic characteristic)
         readCharacteristic,
     required Future<void> Function(QualifiedCharacteristic characteristic,
-            {required List<int> value})
+            {required List<BigInt> value})
         writeWithResponse,
     required Future<void> Function(QualifiedCharacteristic characteristic,
-            {required List<int> value})
+            {required List<BigInt> value})
         writeWithOutResponse,
     required void Function(String message) logMessage,
-    required Stream<List<int>> Function(QualifiedCharacteristic characteristic)
+    required Stream<List<BigInt>> Function(
+            QualifiedCharacteristic characteristic)
         subscribeToCharacteristic,
   })  : _bleDiscoverServices = bleDiscoverServices,
         _readCharacteristic = readCharacteristic,
@@ -27,16 +29,16 @@ class BleDeviceInteractor {
   final Future<List<DiscoveredService>> Function(String deviceId)
       _bleDiscoverServices;
 
-  final Future<List<int>> Function(QualifiedCharacteristic characteristic)
+  final Future<List<BigInt>> Function(QualifiedCharacteristic characteristic)
       _readCharacteristic;
 
   final Future<void> Function(QualifiedCharacteristic characteristic,
-      {required List<int> value}) _writeWithResponse;
+      {required List<BigInt> value}) _writeWithResponse;
 
   final Future<void> Function(QualifiedCharacteristic characteristic,
-      {required List<int> value}) _writeWithoutResponse;
+      {required List<BigInt> value}) _writeWithoutResponse;
 
-  final Stream<List<int>> Function(QualifiedCharacteristic characteristic)
+  final Stream<List<BigInt>> Function(QualifiedCharacteristic characteristic)
       _subScribeToCharacteristic;
 
   final void Function(String message) _logMessage;
@@ -53,7 +55,7 @@ class BleDeviceInteractor {
     }
   }
 
-  Future<List<int>> readCharacteristic(
+  Future<List<BigInt>> readCharacteristic(
       QualifiedCharacteristic characteristic) async {
     try {
       final result = await _readCharacteristic(characteristic);
@@ -71,7 +73,7 @@ class BleDeviceInteractor {
   }
 
   Future<void> writeCharacterisiticWithResponse(
-      QualifiedCharacteristic characteristic, List<int> value) async {
+      QualifiedCharacteristic characteristic, List<BigInt> value) async {
     try {
       _logMessage(
           'Write with response value : $value to ${characteristic.characteristicId}');
@@ -87,7 +89,7 @@ class BleDeviceInteractor {
   }
 
   Future<void> writeCharacterisiticWithoutResponse(
-      QualifiedCharacteristic characteristic, List<int> value) async {
+      QualifiedCharacteristic characteristic, List<BigInt> value) async {
     try {
       await _writeWithoutResponse(characteristic, value: value);
       _logMessage(
@@ -102,7 +104,7 @@ class BleDeviceInteractor {
     }
   }
 
-  Stream<List<int>> subScribeToCharacteristic(
+  Stream<List<BigInt>> subScribeToCharacteristic(
       QualifiedCharacteristic characteristic) {
     _logMessage('Subscribing to: ${characteristic.characteristicId} ');
     return _subScribeToCharacteristic(characteristic);

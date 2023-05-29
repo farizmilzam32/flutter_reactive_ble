@@ -13,7 +13,7 @@ class Repeater<T> {
   final Future<dynamic> Function()? _onCancel;
   final bool _isSync;
   final bool _isBroadcast;
-  int detachCount = 0;
+  BigInt detachCount = 0;
 
   // ignore: prefer_function_declarations_over_variables
   void Function(String) log = (_) {};

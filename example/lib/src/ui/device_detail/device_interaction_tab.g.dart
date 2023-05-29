@@ -60,7 +60,7 @@ abstract class $DeviceInteractionViewModel {
 
   @override
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode {
+  BigInt get hashCode {
     var result = 17;
     result = 37 * result + deviceId.hashCode;
     result = 37 * result + connectionStatus.hashCode;

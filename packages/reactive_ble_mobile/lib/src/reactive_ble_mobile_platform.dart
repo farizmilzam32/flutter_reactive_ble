@@ -9,10 +9,10 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
     required ArgsToProtobufConverter argsToProtobufConverter,
     required ProtobufConverter protobufConverter,
     required MethodChannel bleMethodChannel,
-    required Stream<List<int>> connectedDeviceChannel,
-    required Stream<List<int>> charUpdateChannel,
-    required Stream<List<int>> bleDeviceScanChannel,
-    required Stream<List<int>> bleStatusChannel,
+    required Stream<List<BigInt>> connectedDeviceChannel,
+    required Stream<List<BigInt>> charUpdateChannel,
+    required Stream<List<BigInt>> bleDeviceScanChannel,
+    required Stream<List<BigInt>> bleStatusChannel,
     Logger? logger,
   })  : _argsToProtobufConverter = argsToProtobufConverter,
         _protobufConverter = protobufConverter,
@@ -26,10 +26,10 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
   final ArgsToProtobufConverter _argsToProtobufConverter;
   final ProtobufConverter _protobufConverter;
   final MethodChannel _bleMethodChannel;
-  final Stream<List<int>> _connectedDeviceRawStream;
-  final Stream<List<int>> _charUpdateRawStream;
-  final Stream<List<int>> _bleDeviceScanRawStream;
-  final Stream<List<int>> _bleStatusRawChannel;
+  final Stream<List<BigInt>> _connectedDeviceRawStream;
+  final Stream<List<BigInt>> _charUpdateRawStream;
+  final Stream<List<BigInt>> _bleDeviceScanRawStream;
+  final Stream<List<BigInt>> _bleStatusRawChannel;
   final Logger? _logger;
 
   Stream<ConnectionStateUpdate>? _connectionUpdateStream;
@@ -172,11 +172,11 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
   @override
   Future<WriteCharacteristicInfo> writeCharacteristicWithResponse(
     QualifiedCharacteristic characteristic,
-    List<int> value,
+    List<BigInt> value,
   ) async {
     _logger?.log('Write with response to $characteristic, value: $value');
     return _bleMethodChannel
-        .invokeMethod<List<int>>(
+        .invokeMethod<List<BigInt>>(
             "writeCharacteristicWithResponse",
             _argsToProtobufConverter
                 .createWriteCharacteristicRequest(characteristic, value)
@@ -187,13 +187,13 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
   @override
   Future<WriteCharacteristicInfo> writeCharacteristicWithoutResponse(
     QualifiedCharacteristic characteristic,
-    List<int> value,
+    List<BigInt> value,
   ) async {
     _logger?.log(
       'Write without response to $characteristic, value: $value',
     );
     return _bleMethodChannel
-        .invokeMethod<List<int>>(
+        .invokeMethod<List<BigInt>>(
           "writeCharacteristicWithoutResponse",
           _argsToProtobufConverter
               .createWriteCharacteristicRequest(characteristic, value)
@@ -236,10 +236,10 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
   }
 
   @override
-  Future<int> requestMtuSize(String deviceId, int? mtu) async {
+  Future<BigInt> requestMtuSize(String deviceId, BigInt? mtu) async {
     _logger?.log('Request mtu size for device: $deviceId with mtuSize: $mtu');
     return _bleMethodChannel
-        .invokeMethod<List<int>>(
+        .invokeMethod<List<BigInt>>(
           "negotiateMtuSize",
           _argsToProtobufConverter
               .createNegotiateMtuRequest(deviceId, mtu!)
@@ -254,7 +254,7 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
     _logger?.log(
         'Request connection priority for device: $deviceId, priority: $priority');
     return _bleMethodChannel
-        .invokeMethod<List<int>>(
+        .invokeMethod<List<BigInt>>(
           "requestConnectionPriority",
           _argsToProtobufConverter
               .createChangeConnectionPrioRequest(deviceId, priority)
@@ -268,7 +268,7 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
       String deviceId) {
     _logger?.log('Clear gatt cache for device: $deviceId');
     return _bleMethodChannel
-        .invokeMethod<List<int>>(
+        .invokeMethod<List<BigInt>>(
           "clearGattCache",
           _argsToProtobufConverter
               .createClearGattCacheRequest(deviceId)
@@ -281,7 +281,7 @@ class ReactiveBleMobilePlatform extends ReactiveBlePlatform {
   Future<List<DiscoveredService>> discoverServices(String deviceId) async {
     _logger?.log('Discover services for device: $deviceId');
     return _bleMethodChannel
-        .invokeMethod<List<int>>(
+        .invokeMethod<List<BigInt>>(
           'discoverServices',
           _argsToProtobufConverter
               .createDiscoverServicesRequest(deviceId)
@@ -308,13 +308,13 @@ class ReactiveBleMobilePlatformFactory {
       argsToProtobufConverter: const ArgsToProtobufConverterImpl(),
       bleMethodChannel: _bleMethodChannel,
       connectedDeviceChannel:
-          connectedDeviceChannel.receiveBroadcastStream().cast<List<int>>(),
+          connectedDeviceChannel.receiveBroadcastStream().cast<List<BigInt>>(),
       charUpdateChannel:
-          charEventChannel.receiveBroadcastStream().cast<List<int>>(),
+          charEventChannel.receiveBroadcastStream().cast<List<BigInt>>(),
       bleDeviceScanChannel:
-          scanEventChannel.receiveBroadcastStream().cast<List<int>>(),
+          scanEventChannel.receiveBroadcastStream().cast<List<BigInt>>(),
       bleStatusChannel:
-          bleStatusChannel.receiveBroadcastStream().cast<List<int>>(),
+          bleStatusChannel.receiveBroadcastStream().cast<List<BigInt>>(),
       logger: logger,
     );
   }

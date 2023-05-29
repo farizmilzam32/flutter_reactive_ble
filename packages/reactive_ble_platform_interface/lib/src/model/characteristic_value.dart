@@ -5,7 +5,7 @@ import 'result.dart';
 /// Value update for specific [QualifiedCharacteristic].
 class CharacteristicValue {
   final QualifiedCharacteristic characteristic;
-  final Result<List<int>, GenericFailure<CharacteristicValueUpdateError>?>
+  final Result<List<BigInt>, GenericFailure<CharacteristicValueUpdateError>?>
       result;
 
   const CharacteristicValue(

@@ -1,5 +1,5 @@
 T selectFrom<T>(List<T> values,
-    {required int? index, required T Function(int? index) fallback}) {
+    {required BigInt? index, required T Function(BigInt? index) fallback}) {
   if (index != null && index >= 0 && index < values.length) {
     return values[index];
   }

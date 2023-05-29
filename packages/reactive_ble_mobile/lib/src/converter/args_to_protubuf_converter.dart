@@ -17,7 +17,7 @@ abstract class ArgsToProtobufConverter {
 
   pb.WriteCharacteristicRequest createWriteCharacteristicRequest(
     QualifiedCharacteristic characteristic,
-    List<int> value,
+    List<BigInt> value,
   );
 
   pb.NotifyCharacteristicRequest createNotifyCharacteristicRequest(
@@ -30,7 +30,7 @@ abstract class ArgsToProtobufConverter {
 
   pb.NegotiateMtuRequest createNegotiateMtuRequest(
     String deviceId,
-    int mtu,
+    BigInt mtu,
   );
 
   pb.ChangeConnectionPriorityRequest createChangeConnectionPrioRequest(
@@ -103,7 +103,7 @@ class ArgsToProtobufConverterImpl implements ArgsToProtobufConverter {
   @override
   pb.WriteCharacteristicRequest createWriteCharacteristicRequest(
     QualifiedCharacteristic characteristic,
-    List<int> value,
+    List<BigInt> value,
   ) {
     final args = pb.WriteCharacteristicRequest()
       ..characteristic = (pb.CharacteristicAddress()
@@ -147,7 +147,7 @@ class ArgsToProtobufConverterImpl implements ArgsToProtobufConverter {
   @override
   pb.NegotiateMtuRequest createNegotiateMtuRequest(
     String deviceId,
-    int mtu,
+    BigInt mtu,
   ) {
     final args = pb.NegotiateMtuRequest()
       ..deviceId = deviceId

@@ -40,7 +40,7 @@ abstract class $ScanResult {
 
   @override
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode {
+  BigInt get hashCode {
     return result.hashCode;
   }
 }
@@ -70,7 +70,7 @@ abstract class $DiscoveredDevice {
   Map<Uuid, Uint8List> get serviceData;
   List<Uuid> get serviceUuids;
   Uint8List get manufacturerData;
-  int get rssi;
+  BigInt get rssi;
 
   DiscoveredDevice copyWith({
     String? id,
@@ -78,7 +78,7 @@ abstract class $DiscoveredDevice {
     Map<Uuid, Uint8List>? serviceData,
     List<Uuid>? serviceUuids,
     Uint8List? manufacturerData,
-    int? rssi,
+    BigInt? rssi,
   }) =>
       DiscoveredDevice(
         id: id ?? this.id,
@@ -129,7 +129,7 @@ abstract class $DiscoveredDevice {
 
   @override
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
-  int get hashCode {
+  BigInt get hashCode {
     var result = 17;
     result = 37 * result + id.hashCode;
     result = 37 * result + name.hashCode;
@@ -157,7 +157,7 @@ class DiscoveredDevice$Change {
   Map<Uuid, Uint8List> serviceData;
   List<Uuid> serviceUuids;
   Uint8List manufacturerData;
-  int rssi;
+  BigInt rssi;
 }
 
 // ignore: avoid_classes_with_only_static_members
@@ -190,7 +190,7 @@ class DiscoveredDevice$ {
         manufacturerDataContainer.copyWith(manufacturerData: manufacturerData),
   );
 
-  static final rssi = Lens<DiscoveredDevice, int>(
+  static final rssi = Lens<DiscoveredDevice, BigInt>(
     (rssiContainer) => rssiContainer.rssi,
     (rssiContainer, rssi) => rssiContainer.copyWith(rssi: rssi),
   );

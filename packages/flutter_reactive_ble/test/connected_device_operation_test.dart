@@ -53,7 +53,7 @@ void main() {
       CharacteristicValue? valueUpdate;
       CharacteristicValue? valueUpdateOtherDevice;
       CharacteristicValue? valueUpdateSameDeviceOtherChar;
-      List<int>? result;
+      List<BigInt>? result;
 
       setUp(() {
         charDevice = QualifiedCharacteristic(
@@ -253,7 +253,7 @@ void main() {
         late CharacteristicValue valueUpdate2;
         late CharacteristicValue valueUpdateOtherDevice;
         late CharacteristicValue valueUpdateSameDeviceOtherChar;
-        late Stream<List<int>?> result;
+        late Stream<List<BigInt>?> result;
         late Completer<ConnectionStateUpdate> terminateCompleter;
 
         setUp(() {
@@ -320,7 +320,7 @@ void main() {
           test('It emits all values that matches', () {
             expect(
                 result,
-                emitsInOrder(<List<int>>[
+                emitsInOrder(<List<BigInt>>[
                   [1],
                   [2],
                 ]));
@@ -331,7 +331,7 @@ void main() {
       group('Negotiate mtusize', () {
         const deviceId = '123';
         const mtuSize = 50;
-        int? result;
+        BigInt? result;
 
         setUp(() async {
           when(_blePlatform.requestMtuSize(deviceId, mtuSize))

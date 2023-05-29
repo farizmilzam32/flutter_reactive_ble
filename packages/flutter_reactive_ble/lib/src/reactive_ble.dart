@@ -154,7 +154,7 @@ class FlutterReactiveBle {
   /// Be aware that a read request could be satisfied by a notification delivered
   /// for the same characteristic via [characteristicValueStream] before the actual
   /// read response arrives (due to the design of iOS BLE API).
-  Future<List<int>> readCharacteristic(
+  Future<List<BigInt>> readCharacteristic(
       QualifiedCharacteristic characteristic) async {
     await initialize();
     return _connectedDeviceOperator.readCharacteristic(characteristic);
@@ -165,7 +165,7 @@ class FlutterReactiveBle {
   /// The returned future completes with an error in case of a failure during writing.
   Future<void> writeCharacteristicWithResponse(
     QualifiedCharacteristic characteristic, {
-    required List<int> value,
+    required List<BigInt> value,
   }) async {
     await initialize();
     return _connectedDeviceOperator.writeCharacteristicWithResponse(
@@ -184,7 +184,7 @@ class FlutterReactiveBle {
   /// The returned future completes with an error in case of a failure during writing.
   Future<void> writeCharacteristicWithoutResponse(
     QualifiedCharacteristic characteristic, {
-    required List<int> value,
+    required List<BigInt> value,
   }) async {
     await initialize();
     return _connectedDeviceOperator.writeCharacteristicWithoutResponse(
@@ -201,7 +201,8 @@ class FlutterReactiveBle {
   ///
   /// * BLE 4.0–4.1 max ATT MTU is 23 bytes
   /// * BLE 4.2–5.1 max ATT MTU is 247 bytes
-  Future<int> requestMtu({required String deviceId, required int mtu}) async {
+  Future<BigInt> requestMtu(
+      {required String deviceId, required BigInt mtu}) async {
     await initialize();
     return _connectedDeviceOperator.requestMtu(deviceId, mtu);
   }
@@ -314,7 +315,7 @@ class FlutterReactiveBle {
   /// Subscribes to updates from the characteristic specified.
   ///
   /// This stream terminates automatically when the device is disconnected.
-  Stream<List<int>> subscribeToCharacteristic(
+  Stream<List<BigInt>> subscribeToCharacteristic(
     QualifiedCharacteristic characteristic,
   ) {
     final isDisconnected = connectedDeviceStream

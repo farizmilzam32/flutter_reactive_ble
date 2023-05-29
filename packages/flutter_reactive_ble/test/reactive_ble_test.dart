@@ -97,7 +97,7 @@ void main() {
     });
 
     group('CharacteristicValueStream', () {
-      const characteristic = Result<List<int>,
+      const characteristic = Result<List<BigInt>,
           GenericFailure<CharacteristicValueUpdateError>>.success(
         [1],
       );
@@ -134,7 +134,7 @@ void main() {
 
     group('Read characteristic', () {
       QualifiedCharacteristic characteristic;
-      List<int>? result;
+      List<BigInt>? result;
 
       setUp(() async {
         characteristic = _createChar();
@@ -196,7 +196,7 @@ void main() {
     group('Request mtu', () {
       const deviceId = '123';
       const mtu = 120;
-      int? result;
+      BigInt? result;
 
       setUp(() async {
         when(_deviceOperation.requestMtu(any, any))
@@ -404,8 +404,8 @@ void main() {
 
       QualifiedCharacteristic char;
 
-      late Stream<List<int>> valueStream;
-      late Stream<List<int>?> resultStream;
+      late Stream<List<BigInt>> valueStream;
+      late Stream<List<BigInt>?> resultStream;
 
       setUp(() {
         char = _createChar();
@@ -427,7 +427,7 @@ void main() {
         expect(
           resultStream,
           emitsInOrder(
-            <List<int>>[
+            <List<BigInt>>[
               [1],
               [2]
             ],

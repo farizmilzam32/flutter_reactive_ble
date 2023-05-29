@@ -193,7 +193,7 @@ The following operations will only have effect for Android and are not supported
 #### Request connection priority
 
 On Android you can send a connection priority update to the BLE device. The parameter `priority` is an enum that uses the same spec
- as the [BluetoothGatt Android spec](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#requestConnectionPriority(int)).
+ as the [BluetoothGatt Android spec](https://developer.android.com/reference/android/bluetooth/BluetoothGatt#requestConnectionPriority(BigInt)).
  Using `highPerformance` will increase battery usage but will speed up GATT operations. Be cautious when setting the priority when communicating with multiple devices because if you set highperformance for all devices the effect of increasing the priority will be lower.
 
 ```dart

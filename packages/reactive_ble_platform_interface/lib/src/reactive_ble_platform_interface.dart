@@ -129,7 +129,7 @@ abstract class ReactiveBlePlatform extends PlatformInterface {
   /// response only when the peripheral `acknowledged` the write operation
   Future<WriteCharacteristicInfo> writeCharacteristicWithResponse(
     QualifiedCharacteristic characteristic,
-    List<int> value,
+    List<BigInt> value,
   ) {
     throw UnimplementedError(
         'writeCharacteristicWithResponse has not been implemented.');
@@ -142,7 +142,7 @@ abstract class ReactiveBlePlatform extends PlatformInterface {
   /// returns a response to the dart layer when the command arrived.
   Future<WriteCharacteristicInfo> writeCharacteristicWithoutResponse(
     QualifiedCharacteristic characteristic,
-    List<int> value,
+    List<BigInt> value,
   ) {
     throw UnimplementedError(
         'writeCharacteristicWithoutResponse has not been implemented.');
@@ -168,7 +168,7 @@ abstract class ReactiveBlePlatform extends PlatformInterface {
   }
 
   /// Requests a specific MTU for a connected device.
-  Future<int> requestMtuSize(String deviceId, int? mtu) {
+  Future<BigInt> requestMtuSize(String deviceId, BigInt? mtu) {
     throw UnimplementedError('requestMtuSize has not been implemented.');
   }
 

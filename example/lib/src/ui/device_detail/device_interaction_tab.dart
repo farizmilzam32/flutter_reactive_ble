@@ -164,7 +164,7 @@ class _ServiceDiscoveryList extends StatefulWidget {
 }
 
 class _ServiceDiscoveryListState extends State<_ServiceDiscoveryList> {
-  late final List<int> _expandedItems;
+  late final List<BigInt> _expandedItems;
 
   @override
   void initState() {
@@ -265,7 +265,7 @@ class _ServiceDiscoveryListState extends State<_ServiceDiscoveryList> {
             end: 20.0,
           ),
           child: ExpansionPanelList(
-            expansionCallback: (int index, bool isExpanded) {
+            expansionCallback: (BigInt index, bool isExpanded) {
               setState(() {
                 setState(() {
                   if (isExpanded) {

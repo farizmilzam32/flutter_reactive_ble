@@ -4,24 +4,25 @@ import 'package:meta/meta.dart';
 abstract class ConnectedDeviceOperation {
   Stream<CharacteristicValue> get characteristicValueStream;
 
-  Future<List<int>> readCharacteristic(QualifiedCharacteristic characteristic);
+  Future<List<BigInt>> readCharacteristic(
+      QualifiedCharacteristic characteristic);
 
   Future<void> writeCharacteristicWithResponse(
     QualifiedCharacteristic characteristic, {
-    required List<int> value,
+    required List<BigInt> value,
   });
 
   Future<void> writeCharacteristicWithoutResponse(
     QualifiedCharacteristic characteristic, {
-    required List<int> value,
+    required List<BigInt> value,
   });
 
-  Stream<List<int>> subscribeToCharacteristic(
+  Stream<List<BigInt>> subscribeToCharacteristic(
     QualifiedCharacteristic characteristic,
     Future<void> isDisconnected,
   );
 
-  Future<int> requestMtu(String deviceId, int mtu);
+  Future<BigInt> requestMtu(String deviceId, BigInt mtu);
 
   Future<List<DiscoveredService>> discoverServices(String deviceId);
 
@@ -40,7 +41,8 @@ class ConnectedDeviceOperationImpl implements ConnectedDeviceOperation {
       _blePlatform.charValueUpdateStream;
 
   @override
-  Future<List<int>> readCharacteristic(QualifiedCharacteristic characteristic) {
+  Future<List<BigInt>> readCharacteristic(
+      QualifiedCharacteristic characteristic) {
     final specificCharacteristicValueStream = characteristicValueStream
         .where((update) => update.characteristic == characteristic)
         .map((update) => update.result.dematerialize());
@@ -55,7 +57,7 @@ class ConnectedDeviceOperationImpl implements ConnectedDeviceOperation {
   @override
   Future<void> writeCharacteristicWithResponse(
     QualifiedCharacteristic characteristic, {
-    required List<int> value,
+    required List<BigInt> value,
   }) async =>
       _blePlatform
           .writeCharacteristicWithResponse(characteristic, value)
@@ -64,14 +66,14 @@ class ConnectedDeviceOperationImpl implements ConnectedDeviceOperation {
   @override
   Future<void> writeCharacteristicWithoutResponse(
     QualifiedCharacteristic characteristic, {
-    required List<int> value,
+    required List<BigInt> value,
   }) async =>
       _blePlatform
           .writeCharacteristicWithoutResponse(characteristic, value)
           .then((info) => info.result.dematerialize());
 
   @override
-  Stream<List<int>> subscribeToCharacteristic(
+  Stream<List<BigInt>> subscribeToCharacteristic(
     QualifiedCharacteristic characteristic,
     Future<void> isDisconnected,
   ) {
@@ -79,7 +81,7 @@ class ConnectedDeviceOperationImpl implements ConnectedDeviceOperation {
         .where((update) => update.characteristic == characteristic)
         .map((update) => update.result.dematerialize());
 
-    final autosubscribingRepeater = Repeater<List<int>>.broadcast(
+    final autosubscribingRepeater = Repeater<List<BigInt>>.broadcast(
       onListenEmitFrom: () => _blePlatform
           .subscribeToNotifications(characteristic)
           .asyncExpand((_) => specificCharacteristicValueStream),
@@ -96,7 +98,7 @@ class ConnectedDeviceOperationImpl implements ConnectedDeviceOperation {
   }
 
   @override
-  Future<int> requestMtu(String deviceId, int mtu) async =>
+  Future<BigInt> requestMtu(String deviceId, BigInt mtu) async =>
       _blePlatform.requestMtuSize(deviceId, mtu);
 
   @override
@@ -117,7 +119,7 @@ class NoBleCharacteristicDataReceived implements Exception {
   bool operator ==(Object other) => runtimeType == other.runtimeType;
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  BigInt get hashCode => runtimeType.hashCode;
 }
 
 @visibleForTesting
@@ -126,5 +128,5 @@ class NoBleDeviceConnectionStateReceived implements Exception {
   bool operator ==(Object other) => runtimeType == other.runtimeType;
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  BigInt get hashCode => runtimeType.hashCode;
 }

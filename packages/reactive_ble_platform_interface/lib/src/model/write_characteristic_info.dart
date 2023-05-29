@@ -20,7 +20,7 @@ class WriteCharacteristicInfo {
       "$runtimeType(characteristic: $characteristic, result: $result)";
 
   @override
-  int get hashCode =>
+  BigInt get hashCode =>
       ((17 * 37) + characteristic.hashCode) * 37 + result.hashCode;
 
   @override

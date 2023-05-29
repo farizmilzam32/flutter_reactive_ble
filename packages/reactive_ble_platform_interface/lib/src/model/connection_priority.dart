@@ -14,7 +14,7 @@ enum ConnectionPriority {
 }
 
 ///util function to convert priority to a integer.
-int convertPriorityToInt(ConnectionPriority priority) {
+BigInt convertPriorityToInt(ConnectionPriority priority) {
   switch (priority) {
     case ConnectionPriority.balanced:
       return 0;

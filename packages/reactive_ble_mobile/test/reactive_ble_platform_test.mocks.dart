@@ -119,7 +119,7 @@ class MockArgsToProtobufConverter extends _i1.Mock
           .ReadCharacteristicRequest);
   @override
   _i2.WriteCharacteristicRequest createWriteCharacteristicRequest(
-          _i3.QualifiedCharacteristic? characteristic, List<int>? value) =>
+          _i3.QualifiedCharacteristic? characteristic, List<BigInt>? value) =>
       (super.noSuchMethod(
               Invocation.method(
                   #createWriteCharacteristicRequest, [characteristic, value]),
@@ -143,7 +143,7 @@ class MockArgsToProtobufConverter extends _i1.Mock
           as _i2.NotifyNoMoreCharacteristicRequest);
   @override
   _i2.NegotiateMtuRequest createNegotiateMtuRequest(
-          String? deviceId, int? mtu) =>
+          String? deviceId, BigInt? mtu) =>
       (super.noSuchMethod(
               Invocation.method(#createNegotiateMtuRequest, [deviceId, mtu]),
               returnValue: _FakeNegotiateMtuRequest_6())
@@ -194,48 +194,48 @@ class MockProtobufConverter extends _i1.Mock implements _i7.ProtobufConverter {
   }
 
   @override
-  _i3.BleStatus bleStatusFrom(List<int>? data) =>
+  _i3.BleStatus bleStatusFrom(List<BigInt>? data) =>
       (super.noSuchMethod(Invocation.method(#bleStatusFrom, [data]),
           returnValue: _i3.BleStatus.unknown) as _i3.BleStatus);
   @override
-  _i3.ScanResult scanResultFrom(List<int>? data) =>
+  _i3.ScanResult scanResultFrom(List<BigInt>? data) =>
       (super.noSuchMethod(Invocation.method(#scanResultFrom, [data]),
           returnValue: _FakeScanResult_11()) as _i3.ScanResult);
   @override
-  _i3.ConnectionStateUpdate connectionStateUpdateFrom(List<int>? data) =>
+  _i3.ConnectionStateUpdate connectionStateUpdateFrom(List<BigInt>? data) =>
       (super.noSuchMethod(Invocation.method(#connectionStateUpdateFrom, [data]),
               returnValue: _FakeConnectionStateUpdate_12())
           as _i3.ConnectionStateUpdate);
   @override
   _i3.Result<_i3.Unit, _i3.GenericFailure<_i3.ClearGattCacheError>?>
-      clearGattCacheResultFrom(List<int>? data) => (super.noSuchMethod(
+      clearGattCacheResultFrom(List<BigInt>? data) => (super.noSuchMethod(
           Invocation.method(#clearGattCacheResultFrom, [data]),
           returnValue: _FakeResult_13<_i3.Unit,
               _i3.GenericFailure<_i3.ClearGattCacheError>?>()) as _i3
           .Result<_i3.Unit, _i3.GenericFailure<_i3.ClearGattCacheError>?>);
   @override
-  _i3.CharacteristicValue characteristicValueFrom(List<int>? data) =>
+  _i3.CharacteristicValue characteristicValueFrom(List<BigInt>? data) =>
       (super.noSuchMethod(Invocation.method(#characteristicValueFrom, [data]),
               returnValue: _FakeCharacteristicValue_14())
           as _i3.CharacteristicValue);
   @override
-  _i3.WriteCharacteristicInfo writeCharacteristicInfoFrom(List<int>? data) =>
+  _i3.WriteCharacteristicInfo writeCharacteristicInfoFrom(List<BigInt>? data) =>
       (super.noSuchMethod(
               Invocation.method(#writeCharacteristicInfoFrom, [data]),
               returnValue: _FakeWriteCharacteristicInfo_15())
           as _i3.WriteCharacteristicInfo);
   @override
-  _i3.ConnectionPriorityInfo connectionPriorityInfoFrom(List<int>? data) =>
+  _i3.ConnectionPriorityInfo connectionPriorityInfoFrom(List<BigInt>? data) =>
       (super.noSuchMethod(
               Invocation.method(#connectionPriorityInfoFrom, [data]),
               returnValue: _FakeConnectionPriorityInfo_16())
           as _i3.ConnectionPriorityInfo);
   @override
-  int mtuSizeFrom(List<int>? data) => (super
+  BigInt mtuSizeFrom(List<BigInt>? data) => (super
           .noSuchMethod(Invocation.method(#mtuSizeFrom, [data]), returnValue: 0)
-      as int);
+      as BigInt);
   @override
-  List<_i3.DiscoveredService> discoveredServicesFrom(List<int>? data) =>
+  List<_i3.DiscoveredService> discoveredServicesFrom(List<BigInt>? data) =>
       (super.noSuchMethod(Invocation.method(#discoveredServicesFrom, [data]),
               returnValue: <_i3.DiscoveredService>[])
           as List<_i3.DiscoveredService>);

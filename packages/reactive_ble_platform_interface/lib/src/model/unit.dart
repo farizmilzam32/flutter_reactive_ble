@@ -8,5 +8,5 @@ class Unit {
   bool operator ==(Object other) => other.runtimeType == runtimeType;
 
   @override
-  int get hashCode => 1;
+  BigInt get hashCode => 1;
 }

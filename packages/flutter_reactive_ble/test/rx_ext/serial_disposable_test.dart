@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Serialdisposable', () {
-    late SerialDisposable<int> sut;
+    late SerialDisposable<BigInt> sut;
     late _Disposer disposer;
 
     setUp(() {
@@ -47,11 +47,11 @@ void main() {
 }
 
 class _Disposer {
-  final _values = <int>[];
-  Future<Unit> dispose(int value) async {
+  final _values = <BigInt>[];
+  Future<Unit> dispose(BigInt value) async {
     _values.add(value);
     return const Unit();
   }
 
-  List<int> get disposedValues => _values;
+  List<BigInt> get disposedValues => _values;
 }

@@ -5,33 +5,33 @@ import '../generated/bledata.pb.dart' as pb;
 import '../select_from.dart';
 
 abstract class ProtobufConverter {
-  BleStatus bleStatusFrom(List<int> data);
+  BleStatus bleStatusFrom(List<BigInt> data);
 
-  ScanResult scanResultFrom(List<int> data);
+  ScanResult scanResultFrom(List<BigInt> data);
 
-  ConnectionStateUpdate connectionStateUpdateFrom(List<int> data);
+  ConnectionStateUpdate connectionStateUpdateFrom(List<BigInt> data);
 
   Result<Unit, GenericFailure<ClearGattCacheError>?> clearGattCacheResultFrom(
-    List<int> data,
+    List<BigInt> data,
   );
 
-  CharacteristicValue characteristicValueFrom(List<int> data);
+  CharacteristicValue characteristicValueFrom(List<BigInt> data);
 
-  WriteCharacteristicInfo writeCharacteristicInfoFrom(List<int> data);
+  WriteCharacteristicInfo writeCharacteristicInfoFrom(List<BigInt> data);
 
-  ConnectionPriorityInfo connectionPriorityInfoFrom(List<int> data);
+  ConnectionPriorityInfo connectionPriorityInfoFrom(List<BigInt> data);
 
-  int mtuSizeFrom(List<int> data) =>
+  BigInt mtuSizeFrom(List<BigInt> data) =>
       pb.NegotiateMtuInfo.fromBuffer(data).mtuSize;
 
-  List<DiscoveredService> discoveredServicesFrom(List<int> data);
+  List<DiscoveredService> discoveredServicesFrom(List<BigInt> data);
 }
 
 class ProtobufConverterImpl implements ProtobufConverter {
   const ProtobufConverterImpl();
 
   @override
-  BleStatus bleStatusFrom(List<int> data) {
+  BleStatus bleStatusFrom(List<BigInt> data) {
     final message = pb.BleStatusInfo.fromBuffer(data);
     return selectFrom(
       BleStatus.values,
@@ -41,7 +41,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  ScanResult scanResultFrom(List<int> data) {
+  ScanResult scanResultFrom(List<BigInt> data) {
     final message = pb.DeviceScanInfo.fromBuffer(data);
 
     final serviceData = Map.fromIterables(
@@ -73,27 +73,27 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  ConnectionStateUpdate connectionStateUpdateFrom(List<int> data) {
+  ConnectionStateUpdate connectionStateUpdateFrom(List<BigInt> data) {
     final deviceInfo = pb.DeviceInfo.fromBuffer(data);
     return ConnectionStateUpdate(
       deviceId: deviceInfo.id,
       connectionState: selectFrom(
         DeviceConnectionState.values,
         index: deviceInfo.connectionState,
-        fallback: (int? raw) => throw _InvalidConnectionState(raw),
+        fallback: (BigInt? raw) => throw _InvalidConnectionState(raw),
       ),
       failure: genericFailureFrom(
         hasFailure: deviceInfo.hasFailure(),
         getFailure: () => deviceInfo.failure,
         codes: ConnectionError.values,
-        fallback: (int? rawOrNull) => ConnectionError.unknown,
+        fallback: (BigInt? rawOrNull) => ConnectionError.unknown,
       ),
     );
   }
 
   @override
   Result<Unit, GenericFailure<ClearGattCacheError>?> clearGattCacheResultFrom(
-      List<int> data) {
+      List<BigInt> data) {
     final message = pb.ClearGattCacheInfo.fromBuffer(data);
     return resultFrom(
       getValue: () => const Unit(),
@@ -107,7 +107,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  CharacteristicValue characteristicValueFrom(List<int> data) {
+  CharacteristicValue characteristicValueFrom(List<BigInt> data) {
     final message = pb.CharacteristicValueInfo.fromBuffer(data);
 
     return CharacteristicValue(
@@ -125,7 +125,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  WriteCharacteristicInfo writeCharacteristicInfoFrom(List<int> data) {
+  WriteCharacteristicInfo writeCharacteristicInfoFrom(List<BigInt> data) {
     final message = pb.WriteCharacteristicInfo.fromBuffer(data);
 
     return WriteCharacteristicInfo(
@@ -143,7 +143,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  ConnectionPriorityInfo connectionPriorityInfoFrom(List<int> data) {
+  ConnectionPriorityInfo connectionPriorityInfoFrom(List<BigInt> data) {
     final message = pb.ChangeConnectionPriorityInfo.fromBuffer(data);
     return ConnectionPriorityInfo(
       result: resultFrom(
@@ -159,7 +159,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  int mtuSizeFrom(List<int> data) =>
+  BigInt mtuSizeFrom(List<BigInt> data) =>
       pb.NegotiateMtuInfo.fromBuffer(data).mtuSize;
 
   QualifiedCharacteristic qualifiedCharacteristicFrom(
@@ -175,7 +175,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
     required bool hasFailure,
     required pb.GenericFailure Function() getFailure,
     required List<T> codes,
-    required T Function(int? rawOrNull) fallback,
+    required T Function(BigInt? rawOrNull) fallback,
   }) {
     if (hasFailure) {
       final error = getFailure();
@@ -190,7 +190,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
   }
 
   @override
-  List<DiscoveredService> discoveredServicesFrom(List<int> data) {
+  List<DiscoveredService> discoveredServicesFrom(List<BigInt> data) {
     final message = pb.DiscoverServicesInfo.fromBuffer(data);
     return message.services.map(_convertService).toList(growable: false);
   }
@@ -227,7 +227,7 @@ class ProtobufConverterImpl implements ProtobufConverter {
 }
 
 class _InvalidConnectionState extends Error {
-  final int? rawValue;
+  final BigInt? rawValue;
 
   _InvalidConnectionState(this.rawValue);
 

@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 class Uuid {
   final Uint8List data;
 
-  Uuid(List<int> data) : data = Uint8List.fromList(data);
+  Uuid(List<BigInt> data) : data = Uint8List.fromList(data);
 
   factory Uuid.parse(String string) {
     final data = Uint8List(16);
@@ -23,7 +23,7 @@ class Uuid {
         throw _UuidParseFailure(string);
       }
 
-      final byte = int.tryParse(
+      final byte = BigInt.tryParse(
         string.substring(substringStart, substringStart + 2),
         radix: 16,
       );
@@ -43,7 +43,7 @@ class Uuid {
 
   @override
   String toString() {
-    String paddedHex(int num) {
+    String paddedHex(BigInt num) {
       final text = num.toRadixString(16);
       return text.length < 2 ? "0$text" : text;
     }
@@ -64,7 +64,7 @@ class Uuid {
   }
 
   @override
-  int get hashCode =>
+  BigInt get hashCode =>
       data.fold(17, (hash, octet) => 37 * hash + octet.hashCode);
 
   @override

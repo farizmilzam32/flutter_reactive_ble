@@ -39,7 +39,7 @@ class DiscoveredDevice extends $DiscoveredDevice {
   @CustomEquality(DeepCollectionEquality())
   final Uint8List manufacturerData;
 
-  final int rssi;
+  final BigInt rssi;
 
   const DiscoveredDevice({
     required this.id,

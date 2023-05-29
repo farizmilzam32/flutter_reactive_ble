@@ -34,7 +34,7 @@ class DiscoveredCharacteristic {
       "$runtimeType(characteristicId: $characteristicId, serviceId: $serviceId)";
 
   @override
-  int get hashCode =>
+  BigInt get hashCode =>
       (((17 * 37) + characteristicId.hashCode) * 37 + serviceId.hashCode) * 37;
 
   @override

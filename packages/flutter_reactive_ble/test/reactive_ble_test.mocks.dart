@@ -116,7 +116,7 @@ class MockReactiveBlePlatform extends _i1.Mock
           returnValue: Stream<void>.empty()) as _i4.Stream<void>);
   @override
   _i4.Future<_i2.WriteCharacteristicInfo> writeCharacteristicWithResponse(
-          _i2.QualifiedCharacteristic? characteristic, List<int>? value) =>
+          _i2.QualifiedCharacteristic? characteristic, List<BigInt>? value) =>
       (super.noSuchMethod(
               Invocation.method(
                   #writeCharacteristicWithResponse, [characteristic, value]),
@@ -125,7 +125,7 @@ class MockReactiveBlePlatform extends _i1.Mock
           as _i4.Future<_i2.WriteCharacteristicInfo>);
   @override
   _i4.Future<_i2.WriteCharacteristicInfo> writeCharacteristicWithoutResponse(
-          _i2.QualifiedCharacteristic? characteristic, List<int>? value) =>
+          _i2.QualifiedCharacteristic? characteristic, List<BigInt>? value) =>
       (super.noSuchMethod(
               Invocation.method(
                   #writeCharacteristicWithoutResponse, [characteristic, value]),
@@ -146,9 +146,9 @@ class MockReactiveBlePlatform extends _i1.Mock
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
   @override
-  _i4.Future<int> requestMtuSize(String? deviceId, int? mtu) =>
+  _i4.Future<BigInt> requestMtuSize(String? deviceId, BigInt? mtu) =>
       (super.noSuchMethod(Invocation.method(#requestMtuSize, [deviceId, mtu]),
-          returnValue: Future<int>.value(0)) as _i4.Future<int>);
+          returnValue: Future<BigInt>.value(0)) as _i4.Future<BigInt>);
   @override
   _i4.Future<_i2.ConnectionPriorityInfo> requestConnectionPriority(
           String? deviceId, _i2.ConnectionPriority? priority) =>
@@ -199,16 +199,16 @@ class MockConnectedDeviceOperation extends _i1.Mock
               returnValue: Stream<_i2.CharacteristicValue>.empty())
           as _i4.Stream<_i2.CharacteristicValue>);
   @override
-  _i4.Future<List<int>> readCharacteristic(
+  _i4.Future<List<BigInt>> readCharacteristic(
           _i2.QualifiedCharacteristic? characteristic) =>
       (super.noSuchMethod(
               Invocation.method(#readCharacteristic, [characteristic]),
-              returnValue: Future<List<int>>.value(<int>[]))
-          as _i4.Future<List<int>>);
+              returnValue: Future<List<BigInt>>.value(<BigInt>[]))
+          as _i4.Future<List<BigInt>>);
   @override
   _i4.Future<void> writeCharacteristicWithResponse(
           _i2.QualifiedCharacteristic? characteristic,
-          {List<int>? value}) =>
+          {List<BigInt>? value}) =>
       (super.noSuchMethod(
           Invocation.method(#writeCharacteristicWithResponse, [characteristic],
               {#value: value}),
@@ -217,24 +217,25 @@ class MockConnectedDeviceOperation extends _i1.Mock
   @override
   _i4.Future<void> writeCharacteristicWithoutResponse(
           _i2.QualifiedCharacteristic? characteristic,
-          {List<int>? value}) =>
+          {List<BigInt>? value}) =>
       (super.noSuchMethod(
           Invocation.method(#writeCharacteristicWithoutResponse,
               [characteristic], {#value: value}),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
   @override
-  _i4.Stream<List<int>> subscribeToCharacteristic(
+  _i4.Stream<List<BigInt>> subscribeToCharacteristic(
           _i2.QualifiedCharacteristic? characteristic,
           _i4.Future<void>? isDisconnected) =>
       (super.noSuchMethod(
-          Invocation.method(
-              #subscribeToCharacteristic, [characteristic, isDisconnected]),
-          returnValue: Stream<List<int>>.empty()) as _i4.Stream<List<int>>);
+              Invocation.method(
+                  #subscribeToCharacteristic, [characteristic, isDisconnected]),
+              returnValue: Stream<List<BigInt>>.empty())
+          as _i4.Stream<List<BigInt>>);
   @override
-  _i4.Future<int> requestMtu(String? deviceId, int? mtu) =>
+  _i4.Future<BigInt> requestMtu(String? deviceId, BigInt? mtu) =>
       (super.noSuchMethod(Invocation.method(#requestMtu, [deviceId, mtu]),
-          returnValue: Future<int>.value(0)) as _i4.Future<int>);
+          returnValue: Future<BigInt>.value(0)) as _i4.Future<BigInt>);
   @override
   _i4.Future<List<_i2.DiscoveredService>> discoverServices(String? deviceId) =>
       (super.noSuchMethod(Invocation.method(#discoverServices, [deviceId]),

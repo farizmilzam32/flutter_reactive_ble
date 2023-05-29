@@ -3,7 +3,7 @@ import 'package:reactive_ble_platform_interface/src/select_from.dart';
 
 void main() {
   group("selectFrom", () {
-    _Enum sut(int? raw) =>
+    _Enum sut(BigInt? raw) =>
         selectFrom(_Enum.values, index: raw, fallback: (raw) => _Enum.unknown);
 
     test("selects a value by index", () {
